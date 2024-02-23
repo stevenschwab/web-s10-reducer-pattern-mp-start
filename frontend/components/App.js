@@ -1,4 +1,4 @@
-import React from 'react' // 👈 you'll need the reducer hook
+import React, { useReducer } from 'react' // 👈 you'll need the reducer hook
 import Quotes from './Quotes'
 import QuoteForm from './QuoteForm'
 

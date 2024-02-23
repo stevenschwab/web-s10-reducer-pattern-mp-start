@@ -39,7 +39,28 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-  // 👇 implement your reducer here using the action types above
+  switch (action.type) {
+    case CREATE_QUOTE:
+      return { 
+        ...state, 
+        quotes: state.quotes.concat({
+          id: getNextId(),
+          quoteText: action.quoteText,
+          authorName: action.quoteText,
+          apocryphal: false,
+        }) 
+      }
+    case DELETE_QUOTE:
+      return { ...state }
+    case EDIT_QUOTE_AUTHENTICITY:
+      return { ...state }
+    case SET_HIGHLIGHTED_QUOTE:
+      return { ...state }
+    case TOGGLE_VISIBILITY:
+      return { ...state }
+    default:
+      return { ...state }
+  }
 }
 
 export default function App() {

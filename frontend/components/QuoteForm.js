@@ -39,9 +39,10 @@ export default function TodoForm({ createQuote }) {
   const resetForm = () => {
     dispatch({ type: RESET_FORM })
   }
-  const onNewQuote = () => {
-    createQuote(state)
-    resetForm()
+  const onNewQuote = (evt) => {
+    evt.preventDefault();
+    createQuote(state);
+    resetForm();
   }
 
   return (

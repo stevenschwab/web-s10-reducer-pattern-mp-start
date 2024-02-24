@@ -1,10 +1,11 @@
-import React from 'react' // 👈 you'll need the reducer hook
+import React, { useReducer } from 'react'
 
-// 👇 these are the types of actions that can change state
 const CHANGE_INPUT = 'CHANGE_INPUT'
 const RESET_FORM = 'RESET_FORM'
 
-// 👇 create your initial state object here
+const initialState = {
+  
+}
 
 // 👇 create your reducer function here
 

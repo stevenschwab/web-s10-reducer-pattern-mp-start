@@ -23,8 +23,8 @@ const reducer = (state, action) => {
   }
 }
 
-export default function TodoForm({ createQuote = () => { } }) {
-  // 👇 use the reducer hook to spin up state and dispatch
+export default function TodoForm({ createQuote }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const onChange = () => {
     // 👇 implement

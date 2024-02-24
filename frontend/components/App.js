@@ -51,7 +51,9 @@ const reducer = (state, action) => {
         }) 
       }
     case DELETE_QUOTE:
-      return { ...state }
+      return { 
+        ...state
+      }
     case EDIT_QUOTE_AUTHENTICITY:
       return { ...state }
     case SET_HIGHLIGHTED_QUOTE:
@@ -64,7 +66,7 @@ const reducer = (state, action) => {
 }
 
 export default function App() {
-  // 👇 use the reducer hook to spin up state and dispatch
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const createQuote = ({ authorName, quoteText }) => {
     // 👇 use the helper function above to create a new quote
@@ -83,13 +85,19 @@ export default function App() {
     // 👇 implement
   }
 
+  const { quotes, highlightedQuote, displayAllQuotes } = state;
+
   return (
     <div id="mp">
       <h2>Module Project</h2>
       <Quotes
         quotes={quotes}
-      // 👇 lots of props are missing! Check the Quotes component
-
+        highlightedQuote={highlightedQuote}
+        displayAllQuotes={displayAllQuotes}
+        deleteQuote={deleteQuote}
+        editQuoteAuthenticity={editQuoteAuthenticity}
+        setHighlightedQuote={setHighlightedQuote}
+        toggleVisibility={toggleVisibility}
       />
       <QuoteForm
         createQuote={createQuote}

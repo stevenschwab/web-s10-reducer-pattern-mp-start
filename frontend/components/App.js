@@ -89,7 +89,7 @@ export default function App() {
     dispatch({ type: CREATE_QUOTE, payload: { authorName: authorName, quoteText: quoteText} })
   }
   const deleteQuote = id => {
-    // 👇 implement
+    dispatch({ type: DELETE_QUOTE, payload: { id: id} })
   }
   const editQuoteAuthenticity = id => {
     // 👇 implement

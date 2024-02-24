@@ -52,10 +52,21 @@ const reducer = (state, action) => {
       }
     case DELETE_QUOTE:
       return { 
-        ...state
+        ...state,
+        quotes: state.quotes.filter(qt => {
+          return qt.id !== action.payload.id;
+        })
       }
     case EDIT_QUOTE_AUTHENTICITY:
-      return { ...state }
+      return { 
+        ...state,
+        quotes: state.quotes.map(qt => {
+          if (qt.id === action.payload.id) {
+            return { ...qt, apocryphal: !qt.apocryphal }
+          }
+          return qt;
+        })
+      }
     case SET_HIGHLIGHTED_QUOTE:
       return { ...state }
     case TOGGLE_VISIBILITY:

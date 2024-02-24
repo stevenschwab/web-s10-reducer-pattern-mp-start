@@ -95,7 +95,7 @@ export default function App() {
     dispatch({ type: EDIT_QUOTE_AUTHENTICITY, payload: { id: id } })
   }
   const setHighlightedQuote = id => {
-    
+    dispatch({ type: SET_HIGHLIGHTED_QUOTE, payload: { id: id } })
   }
   const toggleVisibility = () => {
     // 👇 implement

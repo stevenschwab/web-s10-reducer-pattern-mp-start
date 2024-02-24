@@ -37,14 +37,13 @@ export default function TodoForm({ createQuote }) {
     })
   }
   const resetForm = () => {
-    // 👇 implement
+    dispatch({ type: RESET_FORM })
   }
   const onNewQuote = () => {
-    // 👇 implement
+    createQuote(state)
     resetForm()
   }
 
-  // 👇 some props are missing in the JSX below:
   return (
     <form id="quoteForm" onSubmit={onNewQuote}>
       <h3>New Quote Form</h3>

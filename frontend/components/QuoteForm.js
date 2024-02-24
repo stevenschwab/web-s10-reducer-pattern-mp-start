@@ -4,10 +4,24 @@ const CHANGE_INPUT = 'CHANGE_INPUT'
 const RESET_FORM = 'RESET_FORM'
 
 const initialState = {
-  
+  authorName: '',
+  quoteText: ''
 }
 
-// 👇 create your reducer function here
+const reducer = (state, action) => {
+  switch (action.type) {
+    case CHANGE_INPUT:
+      return { 
+        ...state,
+        authorName: action.payload.authorName,
+        quoteText: action.payload.quoteText
+      }
+    case RESET_FORM:
+      return initialState;
+    default:
+      return state;
+  }
+}
 
 export default function TodoForm({ createQuote = () => { } }) {
   // 👇 use the reducer hook to spin up state and dispatch

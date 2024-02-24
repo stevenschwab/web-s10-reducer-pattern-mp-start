@@ -62,17 +62,23 @@ const reducer = (state, action) => {
         ...state,
         quotes: state.quotes.map(qt => {
           if (qt.id === action.payload.id) {
-            return { ...qt, apocryphal: !qt.apocryphal }
+            return { ...qt, apocryphal: !qt.apocryphal };
           }
           return qt;
         })
       }
     case SET_HIGHLIGHTED_QUOTE:
-      return { ...state }
+      return { 
+        ...state,
+        highlightedQuote: action.payload.id
+      }
     case TOGGLE_VISIBILITY:
-      return { ...state }
+      return { 
+        ...state,
+        displayAllQuotes: !state.displayAllQuotes
+      }
     default:
-      return { ...state }
+      return state;
   }
 }
 

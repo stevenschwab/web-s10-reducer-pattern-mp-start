@@ -92,10 +92,10 @@ export default function App() {
     dispatch({ type: DELETE_QUOTE, payload: { id: id} })
   }
   const editQuoteAuthenticity = id => {
-    // 👇 implement
+    dispatch({ type: EDIT_QUOTE_AUTHENTICITY, payload: { id: id } })
   }
   const setHighlightedQuote = id => {
-    // 👇 implement
+    
   }
   const toggleVisibility = () => {
     // 👇 implement

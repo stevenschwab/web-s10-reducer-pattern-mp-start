@@ -98,7 +98,7 @@ export default function App() {
     dispatch({ type: SET_HIGHLIGHTED_QUOTE, payload: { id: id } })
   }
   const toggleVisibility = () => {
-    // 👇 implement
+    dispatch({ type: TOGGLE_VISIBILITY })
   }
 
   const { quotes, highlightedQuote, displayAllQuotes } = state;

@@ -10,12 +10,10 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case CHANGE_INPUT:
-      return { 
-        ...state,
-        authorName: action.payload.authorName,
-        quoteText: action.payload.quoteText
-      }
+    case CHANGE_INPUT: {
+      const { name, value } = action.payload
+      return { ...state, [name]: value }
+    }
     case RESET_FORM:
       return initialState;
     default:

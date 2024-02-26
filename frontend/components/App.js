@@ -48,18 +48,14 @@ const reducer = (state, action) => {
     case DELETE_QUOTE:
       return { 
         ...state,
-        quotes: state.quotes.filter(qt => {
-          return qt.id !== action.payload.id;
-        })
+        quotes: state.quotes.filter(qt => qt.id !== action.payload)
       }
     case EDIT_QUOTE_AUTHENTICITY:
       return { 
         ...state,
         quotes: state.quotes.map(qt => {
-          if (qt.id === action.payload.id) {
-            return { ...qt, apocryphal: !qt.apocryphal };
-          }
-          return qt;
+          if (qt.id !== action.payload) return qt
+          return { ...qt, apocryphal: !qt.apocryphal }
         })
       }
     case SET_HIGHLIGHTED_QUOTE:
@@ -85,10 +81,10 @@ export default function App() {
     dispatch({ type: CREATE_QUOTE, payload: newQuote })
   }
   const deleteQuote = id => {
-    dispatch({ type: DELETE_QUOTE, payload: { id: id} })
+    dispatch({ type: DELETE_QUOTE, payload: id })
   }
   const editQuoteAuthenticity = id => {
-    dispatch({ type: EDIT_QUOTE_AUTHENTICITY, payload: { id: id } })
+    dispatch({ type: EDIT_QUOTE_AUTHENTICITY, payload: id })
   }
   const setHighlightedQuote = id => {
     dispatch({ type: SET_HIGHLIGHTED_QUOTE, payload: { id: id } })

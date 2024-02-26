@@ -24,14 +24,10 @@ const reducer = (state, action) => {
 export default function TodoForm({ createQuote }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const onChange = (evt) => {
-    const { value, name } = evt.target;
+  const onChange = ({ target: { name, value } }) => { 
     dispatch({ 
       type: CHANGE_INPUT, 
-      payload: { 
-        authorName: name === 'authorName' ? value : state.authorName, 
-        quoteText: name === 'quoteText' ? value : state.quoteText
-      } 
+      payload: { name, value } 
     })
   }
   const resetForm = () => {

@@ -61,7 +61,8 @@ const reducer = (state, action) => {
     case SET_HIGHLIGHTED_QUOTE:
       return { 
         ...state,
-        highlightedQuote: action.payload.id
+        highlightedQuote: state.highlightedQuote === action.payload
+          ? null : action.payload
       }
     case TOGGLE_VISIBILITY:
       return { 
@@ -87,7 +88,7 @@ export default function App() {
     dispatch({ type: EDIT_QUOTE_AUTHENTICITY, payload: id })
   }
   const setHighlightedQuote = id => {
-    dispatch({ type: SET_HIGHLIGHTED_QUOTE, payload: { id: id } })
+    dispatch({ type: SET_HIGHLIGHTED_QUOTE, payload: id })
   }
   const toggleVisibility = () => {
     dispatch({ type: TOGGLE_VISIBILITY })

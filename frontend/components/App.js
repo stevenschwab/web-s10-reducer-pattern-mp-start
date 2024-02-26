@@ -42,13 +42,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case CREATE_QUOTE:
       return { 
-        ...state, 
-        quotes: state.quotes.concat({
-          id: getNextId(),
-          quoteText: action.payload.quoteText,
-          authorName: action.payload.authorName,
-          apocryphal: false,
-        }) 
+        ...state,
+        quotes: [...state.quotes, action.payload]
       }
     case DELETE_QUOTE:
       return { 
@@ -86,7 +81,8 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const createQuote = ({ authorName, quoteText }) => {
-    dispatch({ type: CREATE_QUOTE, payload: { authorName: authorName, quoteText: quoteText} })
+    const newQuote = { id: getNextId(), authorName, quoteText, apocryphal: false }
+    dispatch({ type: CREATE_QUOTE, payload: newQuote })
   }
   const deleteQuote = id => {
     dispatch({ type: DELETE_QUOTE, payload: { id: id} })

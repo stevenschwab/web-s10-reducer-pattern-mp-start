@@ -3,7 +3,6 @@ import React from 'react'
 
 export default function Quotes({
   quotes,
-  // 👇 although you can remove the default parameters of the Quotes component after you're done
   highlightedQuote,
   displayAllQuotes,
   deleteQuote,
